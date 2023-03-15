@@ -1,0 +1,89 @@
+﻿Step 1: Brainstorming
+* Email
+* Password
+* Username
+* Recipe
+* Ingredients
+* Public or Private
+* Instructions
+* Grocery list
+* Occasion
+
+
+Step 2: Table Ideas
+* Users: email, password, username
+* Recipe: name, directions
+* Ingredient: different ingredients
+* Grocery list: all the ingredients required in the recipe 
+* Occasion: Different 
+
+
+Step 3: Relationship
+* user_recipes: For users and recipes
+* recipe_ingredients: For recipes and ingredients and quantities
+* grocery_ingredients: For grocery list of ingredients needed
+* occasion_recipe: For the recipes for each occasion
+
+
+________________
+
+
+Columns
+
+
+Table: user
+   * id: serial primary key to identify each user
+   * email: unique email address for the user to login
+   * username: a username for the user to create for themselves
+   * Password: password that can be anything
+
+
+Table: recipes
+-        id: serial primary key to identify each recipe
+-        name: title of the recipe
+-        instructions: directions on how to make the recipe
+-        is_public: the user can decide if the recipe is public or not
+
+
+Table: ingredients
+-        id: serial primary key to identify each ingredient
+-        name: name of the ingredient
+
+
+Table: grocery_list
+-        id: serial primary key to identify each grocery
+-        user_id: to tie the user
+
+
+Table: occasion
+-        id: serial primary key to identify each occasion
+-        name: name of the occasion
+-        address: where the occasion is being held
+-        date: a date for the occasion
+-        time: a time for the occasion
+-        user_id: the occasion that assigned to the user
+
+
+Table: user_recipe
+-        id: serial primary key to identify each user’s recipe
+-        user_id: links the user and recipe
+-        recipe_id: links the associated recipe recipe
+
+
+Table: recipe_ing
+-        id: serial primary key to identify each recipe’s ingredients
+-        recipe_id: links the recipe table
+-        quantity: the measurement for the ingredients
+-        ing_id: links to the ingredients table
+
+
+Table: grocery_ing
+-        id: serial primary key to identify each grocery’s list ingredient
+-        groc_id: links the grocery_list id
+-        groc_ing: links from the ingredients table
+
+
+Table: occ_recipe
+-        id: serial primary key to identify each recipe for an occasion
+-        user_id: pulls from the user table to assign a user to the occasion
+-        recipe_id: links the recipe to the occasions
